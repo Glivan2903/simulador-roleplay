@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --color-jet-bg: #09090b;
+    --color-jet-bg-dark: #000000;
+    --color-jet-bg-light: #18181b;
+    --color-jet-surface: #18181b;
+    --color-jet-border: #27272a;
+    --color-jet-neon: #3af35d;
+    --color-jet-neon-light: #8cfb9d;
+    --color-jet-neonHover: #2ed94e;
+    --color-jet-textMuted: #a1a1aa;
+
+    --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+    body {
+        @apply bg-jet-bg text-gray-100 font-sans antialiased m-0 min-h-screen selection:bg-jet-neon selection:text-black;
+    }
+}
+
+@layer utilities {
+    .glass-panel {
+        @apply bg-jet-surface/80 backdrop-blur-md border border-jet-border shadow-2xl;
+    }
+
+    .glass-header {
+        @apply bg-jet-bg/80 backdrop-blur-lg border-b border-jet-border sticky top-0 z-50;
+    }
+
+    .btn-primary {
+        @apply bg-jet-neon text-black font-semibold tracking-wide rounded-md px-6 py-3 transition-all duration-300 hover:bg-jet-neonHover active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none;
+    }
+
+    .btn-secondary {
+        @apply bg-transparent text-jet-textMuted border border-jet-border rounded-md px-6 py-3 transition-all duration-300 hover:text-white hover:border-gray-500 hover:bg-white/5 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+    }
+
+    .input-field {
+        @apply w-full bg-jet-bg border border-jet-border rounded-md px-4 py-3 text-white placeholder-jet-textMuted focus:outline-none focus:ring-2 focus:ring-jet-neon/50 focus:border-jet-neon transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        @apply bg-jet-border rounded-full;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        @apply bg-gray-500;
+    }
+
+    .bubble-ai {
+        @apply bg-jet-surface border border-jet-border text-gray-200 rounded-2xl rounded-tl-sm px-5 py-3 shadow-md max-w-[85%];
+    }
+
+    .bubble-user {
+        @apply bg-gradient-to-br from-jet-neon/20 to-jet-neon/5 border border-jet-neon/30 text-white rounded-2xl rounded-tr-sm px-5 py-3 shadow-md max-w-[85%] ml-auto;
+    }
+}
+
+/* Animações e Transições Globais */
+.fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.slide-up {
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
