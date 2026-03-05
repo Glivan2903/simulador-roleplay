@@ -119,9 +119,9 @@ Critérios:
 
 Notas de 1 a 10 cada. Comentários com no máximo 15 palavras. Seja justo e construtivo.`;
 
-// ============ WEBHOOK CONFIG ============
-// O servidor Proxy Node lidará com as questões de CORS.
-const WEBHOOK_URL = "http://localhost:3001/api/webhook";
+// ============ API E WEBHOOK CONFIG ============
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+const WEBHOOK_URL = `${API_BASE_URL}/api/webhook`;
 
 async function sendToSheets(data) {
   try {
@@ -234,7 +234,7 @@ IMPORTANTE:
     }));
 
     try {
-      const response = await fetch("http://localhost:3001/api/chat", {
+      const response = await fetch(`${API_BASE_URL}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -278,7 +278,7 @@ IMPORTANTE:
       .join("\n");
 
     try {
-      const response = await fetch("http://localhost:3001/api/chat", {
+      const response = await fetch(`${API_BASE_URL}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
