@@ -120,7 +120,7 @@ Critérios:
 Notas de 1 a 10 cada. Comentários com no máximo 15 palavras. Seja justo e construtivo.`;
 
 // ============ API E WEBHOOK CONFIG ============
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "";
 const WEBHOOK_URL = `${API_BASE_URL}/api/webhook`;
 
 async function sendToSheets(data) {
